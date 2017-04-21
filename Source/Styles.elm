@@ -1,6 +1,6 @@
 module Styles exposing (..)
 
-import Html exposing (node, text)
+import Html exposing (Html, node, text)
 import Common exposing (Position(..))
 
 
@@ -41,6 +41,13 @@ dirtyFog =
     ]
 
 
+almost : Gradient
+almost =
+    [ Hex "ddd6f3"
+    , Hex "faaca8"
+    ]
+
+
 toCss : Color -> String
 toCss color =
     case color of
@@ -75,6 +82,7 @@ gradient colors =
         ]
 
 
+styleTag : String -> Html a
 styleTag css =
     node "style"
         []
@@ -82,6 +90,7 @@ styleTag css =
         ]
 
 
+globalCss : String
 globalCss =
     """
     //Montserrat - Poppins - Muli - Oxygen
@@ -105,11 +114,14 @@ globalCss =
   }
 
   .nav.current {
-    text-decoration: underline;
+    border-bottom: 5px solid white;
   }
   .nav {
     margin: 0 .15em;
     user-select: none;
+    width: 25px;
+    text-align: center;
+    display: inline-block;
   }
   .nav:hover {
     text-decoration: underline;
@@ -117,6 +129,18 @@ globalCss =
   }
   .nav:active {
     color: #ACACAC;
+  }
+
+  .over-time {
+    display: block;
+    width: 75px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+    transition: all 10s ease;
+    opacity: 0;
   }
 
   @keyframes slidein {
@@ -131,6 +155,7 @@ globalCss =
 """
 
 
+globalStyleTag : Html a
 globalStyleTag =
     styleTag globalCss
 

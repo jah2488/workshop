@@ -1,11 +1,14 @@
 module Common exposing (..)
 
 import Html exposing (Html)
+import Time exposing (Time)
 
 
 type Msg
     = NoOp
+    | Tick Time
     | KeyPressed Int
+    | KeyHeld Int
     | GoTo Slide
     | Next
     | Prev
@@ -46,6 +49,8 @@ type alias Model =
     , currentSlide : Slide
     , nextSlides : List Slide
     , drawer : Position
+    , shiftHeld : Bool
+    , duration : Int
     }
 
 
@@ -56,4 +61,15 @@ type State
 type alias Slide =
     { title : String
     , content : State -> Html Msg
+    , targetDuration : Int
+    , duration : Int
+    }
+
+
+newSlide : String -> (State -> Html Msg) -> Int -> Slide
+newSlide title content target =
+    { title = title
+    , content = content
+    , targetDuration = target
+    , duration = 0
     }

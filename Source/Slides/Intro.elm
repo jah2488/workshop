@@ -8,6 +8,8 @@ intro : Slide
 intro =
     { title = "Improving Your Teams Through Improved Communication"
     , content = content
+    , duration = 0
+    , targetDuration = 10
     }
 
 

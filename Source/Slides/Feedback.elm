@@ -6,11 +6,4 @@ import Common exposing (..)
 
 feedback : Slide
 feedback =
-    { title = "Feedback"
-    , content = content
-    }
-
-
-content : State -> Html Msg
-content model =
-    text "Hi"
+    newSlide "Feedback" (\model -> text "hi") 10
