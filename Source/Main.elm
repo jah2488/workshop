@@ -1,12 +1,15 @@
 module Main exposing (..)
 
 import Common exposing (..)
-import Html exposing (Html, div, hr, node, section, span, text)
+import Html exposing (Html, div, h1, hr, node, section, span, text)
 import Html.Attributes exposing (class, classList, href, rel, style)
 import Html.Events exposing (onClick)
 import Keyboard
-import Slides.Feedback exposing (feedback)
-import Slides.Intro exposing (intro)
+import List.Extra exposing (uniqueBy)
+import Slides.Intro exposing (..)
+import Slides.Feedback exposing (..)
+import Slides.Limits exposing (..)
+import Slides.Process exposing (..)
 import Styles exposing (..)
 import Time exposing (Time, second)
 
@@ -38,19 +41,6 @@ toKey int =
             None
 
 
-uniq : List a -> List a
-uniq xs =
-    List.foldr
-        (\item xxs ->
-            if List.member item xxs then
-                xxs
-            else
-                item :: xxs
-        )
-        []
-        xs
-
-
 main : Program Never Model Msg
 main =
     Html.program
@@ -74,21 +64,22 @@ init =
     , shiftHeld = False
     , duration = 0
     , nextSlides =
-        [ feedback
-        , { title = "Third Slide", content = (\_ -> text "Words!"), duration = 0, targetDuration = 15 }
-        , { title = "Forth Slide", content = (\_ -> text "Go Go go"), duration = 0, targetDuration = 20 }
-        , { title = "Final Concolusion"
-          , content =
-                (\_ ->
-                    div []
-                        [ text "thankyou"
-                        , div [ onClick <| GoTo intro ] []
-                        ]
-                )
-          , duration = 0
-          , targetDuration = 40
-          }
-        ]
+        introSlides
+            ++ feedbackSlides
+            ++ limitsSlides
+            ++ processSlides
+            ++ [ { title = "Bye"
+                 , content =
+                    (\_ ->
+                        div []
+                            [ text "thankyou"
+                            , div [ onClick <| GoTo intro ] []
+                            ]
+                    )
+                 , duration = 0
+                 , targetDuration = 40
+                 }
+               ]
     , drawer = Closed
     }
         ! []
@@ -107,12 +98,7 @@ changeSlide model direction =
             model.nextSlides
 
         addTo =
-            (\xs ->
-                if List.member current xs then
-                    xs
-                else
-                    current :: xs
-            )
+            (\xs -> uniqSlides model (current :: xs))
 
         rest =
             (\xs -> List.tail xs |> Maybe.withDefault [])
@@ -292,7 +278,7 @@ view model =
             ]
             [ text <| toTime model.duration ]
         , section [ style slideStyles ]
-            [ div [] [ text model.currentSlide.title ]
+            [ h1 [] [ text model.currentSlide.title ]
             , model.currentSlide.content (State model)
             , span
                 [ class "over-time"
@@ -311,9 +297,20 @@ view model =
         ]
 
 
+uniqSlides : Model -> List Slide -> List Slide
+uniqSlides model slides =
+    let
+        filter =
+            (\slide ->
+                ( slide.title, toString <| slide.content (State model) )
+            )
+    in
+        uniqueBy filter slides
+
+
 allSlides : Model -> List Slide
 allSlides model =
-    uniq <| model.previousSlides ++ [ model.currentSlide ] ++ model.nextSlides
+    uniqSlides model model.previousSlides ++ [ model.currentSlide ] ++ model.nextSlides
 
 
 drawerView : Model -> Html Msg
@@ -322,7 +319,7 @@ drawerView model =
         [ div
             [ style <| drawerStyles model.drawer ]
             [ navLink Prev "left" "⬅️"
-            , slideLinks model.currentSlide (allSlides model)
+            , slideLinks model.currentSlide model
             , navLink Next "right" "➡️"
             ]
         ]
@@ -333,16 +330,30 @@ navLink msg textAlign icon =
     span [ onClick msg, class "nav", style [ ( "flex", "1 0 auto" ), ( "text-align", textAlign ) ] ] [ text icon ]
 
 
-slideLinks : Slide -> List Slide -> Html Msg
-slideLinks currentSlide slideList =
-    span []
-        (List.indexedMap
-            (\idx slide ->
-                span
-                    [ onClick (GoTo slide)
-                    , classList [ ( "nav", True ), ( "current", currentSlide == slide ) ]
-                    ]
-                    [ text <| toString (idx + 1) ]
+slideLinks : Slide -> Model -> Html Msg
+slideLinks currentSlide model =
+    let
+        toDrop =
+            ((List.length model.previousSlides) - 5)
+
+        toTake =
+            ((List.length model.previousSlides) + 5)
+
+        all =
+            (model.previousSlides ++ [ currentSlide ] ++ model.nextSlides)
+    in
+        span [] <|
+            (List.indexedMap
+                (\idx slide ->
+                    if idx > toDrop && idx < toTake then
+                        span
+                            [ onClick (GoTo slide)
+                            , classList [ ( "nav", True ), ( "current", currentSlide == slide ) ]
+                            ]
+                            [ text <| toString (idx + 1) ]
+                    else
+                        text ""
+                )
+                all
             )
-            slideList
-        )
+                ++ [ span [ style [ ( "opacity", "0.2" ) ] ] [ text <| "  /  " ++ (toString <| List.length all) ] ]

@@ -66,8 +66,8 @@ type alias Slide =
     }
 
 
-newSlide : String -> (State -> Html Msg) -> Int -> Slide
-newSlide title content target =
+newSlide : String -> Int -> (State -> Html Msg) -> Slide
+newSlide title target content =
     { title = title
     , content = content
     , targetDuration = target
