@@ -14,33 +14,6 @@ import Styles exposing (..)
 import Time exposing (Time, second)
 
 
-type Key
-    = SpaceBar
-    | RightArrow
-    | LeftArrow
-    | LeftShift
-    | None
-
-
-toKey : Int -> Key
-toKey int =
-    case int of
-        16 ->
-            LeftShift
-
-        32 ->
-            SpaceBar
-
-        39 ->
-            RightArrow
-
-        37 ->
-            LeftArrow
-
-        _ ->
-            None
-
-
 main : Program Never Model Msg
 main =
     Html.program
@@ -64,10 +37,12 @@ init =
     , shiftHeld = False
     , duration = 0
     , nextSlides =
-        introSlides
-            ++ feedbackSlides
-            ++ limitsSlides
-            ++ processSlides
+        [ intro ]
+            -- introSlides
+            -- ++ feedbackSlides
+            -- ++ limitsSlides
+            ++
+                processSlides
             ++ [ { title = "Bye"
                  , content =
                     (\_ ->

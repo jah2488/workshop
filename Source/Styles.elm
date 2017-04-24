@@ -109,25 +109,11 @@ globalCss =
     box-sizing: border-box;
   }
 
-  h1 {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.4em;
-  }
-
-  h3 {
-    font-size: 1.1em;
-  }
-
-  h4 {
-    font-size: 0.8em;
-  }
-
-  h5 {
-    font-size: 0.75em;
-  }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.4em; }
+  h3 { font-size: 1.1em; }
+  h4 { font-size: 0.8em; }
+  h5 { font-size: 0.75em; }
 
   section div {
     box-sizing: border-box;

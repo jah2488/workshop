@@ -14,6 +14,33 @@ type Msg
     | Prev
 
 
+type Key
+    = SpaceBar
+    | RightArrow
+    | LeftArrow
+    | LeftShift
+    | None
+
+
+toKey : Int -> Key
+toKey int =
+    case int of
+        16 ->
+            LeftShift
+
+        32 ->
+            SpaceBar
+
+        39 ->
+            RightArrow
+
+        37 ->
+            LeftArrow
+
+        _ ->
+            None
+
+
 type Dir
     = Forward
     | Backward

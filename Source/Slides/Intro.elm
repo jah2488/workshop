@@ -6,13 +6,13 @@ import Common exposing (..)
 
 intro : Slide
 intro =
-    newSlide "Improving Your Teams Through Improved Communication" 30 content
+    newSlide "Building Better Teams Through Communication" 30 content
 
 
 content : State -> Html Msg
 content model =
     div []
-        [ h1 [] [ text "A Talk" ]
+        [ h2 [] [ text "The Workshop" ]
         , h3 [] [ text "by me" ]
         , h5 [] [ text "Justin Herrick" ]
         ]

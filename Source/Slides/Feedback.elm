@@ -60,7 +60,7 @@ feedbackSlides =
                 , h4 [] [ text "Being an Effective Leader" ]
                 ]
         )
-    , newSlide "\"Don't Criticize, Condem, or Complain\"" 30 empty
+    , newSlide "\"Don't Criticize, Condemn, or Complain\"" 30 empty
     , newSlide "\"Give Honest and Sincere Praise\"" 30 empty
     , newSlide "\"Be Genuine\"" 30 empty
     , newSlide "\"Be a Good Listener: Encourage Others To Speak\"" 30 empty
