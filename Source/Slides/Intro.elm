@@ -37,28 +37,24 @@ introSlides =
         30
         (\_ ->
             div []
-                [ h2 []
-                    [ text "Lunar Collective" ]
-                , p [] [ text "Software and Business Consultancy" ]
-                , h2 [] []
-                , ul []
-                    [ li [] [ text "Custom Software" ]
-                    , li [] [ text "Project Recovery" ]
-                    , li [] [ text "Onsite training" ]
-                    , li [] [ text "Remote mentoring" ]
-                    , li [] [ text "Custom Apprenticeships" ]
-                    ]
+                [ h4 [] [ text "A Custom Software and Business Consultancy" ]
+                , p [] [ text "Custom Software" ]
+                , p [] [ text "Project Recovery" ]
+                , p [] [ text "Onsite training" ]
+                , p [] [ text "Remote mentoring" ]
+                , p [] [ text "Custom Apprenticeships" ]
                 ]
         )
     , newSlide "About This Workshop"
         60
         (\_ ->
             div []
-                [ p [] [ text "Time for a show of hands" ]
-                , p [] [ text "This should be a conversation" ]
+                [ p [] [ text "This should be a conversation" ]
                 , p [] [ text "Questions are encouraged" ]
+                , p [] [ text "Honesty is important" ]
                 ]
         )
+    , newSlide "Show of Hands" 45 (\_ -> span [] [])
     , newSlide "Why Communication Matters"
         30
         (\_ ->
@@ -80,8 +76,8 @@ introSlides =
         30
         (\_ ->
             div []
-                [ p [] [ text "This function is an Observer" ]
-                , p [] [ text "'You need a guard clause here'" ]
+                [ p [] [ text "\"This class is a Presenter\"" ]
+                , p [] [ text "\"You need a guard clause here\"" ]
                 ]
         )
     , newSlide "Programming Languages are a form of Communication"
@@ -93,14 +89,14 @@ introSlides =
         )
     , newSlide "Society is built on Communication"
         20
-        (\_ -> div [] [ text "\x1F644" ])
+        (\_ -> h2 [] [ text "\x1F644" ])
     , newSlide "Overview"
         60
         (\_ ->
             div []
-                [ h4 [] [ text "Giving and Receiving Feedback" ]
-                , h4 [] [ text "Verbal vs non verbal Communication" ]
-                , h4 [] [ text "Process as Communication" ]
+                [ h2 [] [ text "Giving and Receiving Feedback" ]
+                , h2 [] [ text "Verbal vs non verbal Communication" ]
+                , h2 [] [ text "Process as Communication" ]
                 ]
         )
     ]

@@ -1,6 +1,7 @@
 module Slides.Feedback exposing (feedbackSlides)
 
 import Html exposing (..)
+import Html.Attributes exposing (href)
 import Common exposing (..)
 
 
@@ -21,11 +22,9 @@ feedbackSlides =
         30
         (\_ ->
             div []
-                [ p []
-                    [ text "Giving feedback is hard."
-                    , strong [] [ text "Giving good feedback is very hard" ]
-                    ]
-                , p [] [ text "Receiving feedback good or bad is also tough" ]
+                [ p [] [ text "Giving feedback is hard." ]
+                , p [] [ strong [] [ text "Giving good feedback is very hard" ] ]
+                , p [] [ text "Receiving feedback (good or bad) can be tough" ]
                 , p [] [ text "Always keep that in mind, regardless of what side of the feedback you find yourself." ]
                 ]
         )
@@ -71,7 +70,7 @@ feedbackSlides =
         60
         (\_ ->
             div []
-                [ small [] [ em [] [ text "Seriously. Go watch it" ] ]
+                [ small [] [ a [ href "http://blog.sashalaundy.com/talks/asking-helping/" ] [ text "Seriously. Go watch it" ] ]
                 , p [] [ text "Assume Competence" ]
                 , p [] [ text "Dont feign surprise (or outrage)" ]
                 , p [] [ text "Share the how and the why, along with the what" ]

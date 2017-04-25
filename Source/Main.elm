@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Common exposing (..)
-import Html exposing (Html, div, h1, hr, node, section, span, text)
+import Html exposing (Html, div, h1, h2, h3, h4, hr, node, section, span, text)
 import Html.Attributes exposing (class, classList, href, rel, style)
 import Html.Events exposing (onClick)
 import Keyboard
@@ -37,23 +37,23 @@ init =
     , shiftHeld = False
     , duration = 0
     , nextSlides =
-        [ intro ]
-            -- introSlides
-            -- ++ feedbackSlides
-            -- ++ limitsSlides
-            ++
-                processSlides
-            ++ [ { title = "Bye"
-                 , content =
+        -- [ intro ]
+        introSlides
+            ++ feedbackSlides
+            ++ limitsSlides
+            ++ processSlides
+            ++ [ newSlide "Wrap Up"
+                    45
                     (\_ ->
                         div []
-                            [ text "thankyou"
-                            , div [ onClick <| GoTo intro ] []
+                            [ h4 [] [ text "Listen to your team" ]
+                            , h4 [] [ text "Be honest, sincere, and empathetic" ]
+                            , h4 [] [ text "Assume less and praise more" ]
+                            , h4 [] [ text "Write things down" ]
+                            , h4 [] [ text "Don't blame the person, blame the (lack of) process" ]
                             ]
                     )
-                 , duration = 0
-                 , targetDuration = 40
-                 }
+               , newSlide "Goodbye" 300 (\_ -> div [] [ h3 [] [ text "Enjoy the rest of the conference" ], h4 [] [ text "justin@lunarcollective.co" ] ])
                ]
     , drawer = Closed
     }
@@ -332,3 +332,4 @@ slideLinks currentSlide model =
                 all
             )
                 ++ [ span [ style [ ( "opacity", "0.2" ) ] ] [ text <| "  /  " ++ (toString <| List.length all) ] ]
+                ++ [ span [ style [ ( "opacity", "0.2" ) ] ] [ text <| "  /  " ++ (toString <| (List.foldl (\slide acc -> acc + currentSlide.targetDuration) 0 all) // 60) ] ]
