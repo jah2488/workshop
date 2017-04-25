@@ -17,6 +17,7 @@ content model =
         , h3 [] [ text "by me" ]
         , h5 [] [ text "Justin Herrick" ]
         , h5 [] [ a [ href "http://communication-workshop.surge.sh/" ] [ text "http://communication-workshop.surge.sh/" ] ]
+        , h5 [] [ em [] [ text "Use the ⬅️ and ➡️ arrow keys to navigate between slides" ] ]
         ]
 
 

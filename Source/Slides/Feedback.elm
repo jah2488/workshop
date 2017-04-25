@@ -84,6 +84,7 @@ feedbackSlides =
             div []
                 [ h2 [] [ text "Code Review Rapid Fire" ]
                 , h5 [] [ a [ href "http://bit.ly/2p0Zndi" ] [ text "http://bit.ly/2p0Zndi" ] ]
+                , p [] [ text "Write a code review for one file at a time in less than a minute, then swap the review notes with your partner." ]
                 ]
         )
     , newSlide "Feedback Takeaways"

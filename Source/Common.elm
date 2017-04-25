@@ -1,6 +1,6 @@
 module Common exposing (..)
 
-import Html exposing (Html)
+import Html exposing (Html, span)
 import Time exposing (Time)
 
 
@@ -81,6 +81,11 @@ type alias Model =
     }
 
 
+emptyModel : Model
+emptyModel =
+    { previousSlides = [], currentSlide = { title = "", content = \state -> span [] [], targetDuration = 0, duration = 0 }, nextSlides = [], drawer = Open, shiftHeld = False, duration = 0 }
+
+
 type State
     = State Model
 
@@ -100,3 +105,13 @@ newSlide title target content =
     , targetDuration = target
     , duration = 0
     }
+
+
+sameSlide : Slide -> Slide -> Bool
+sameSlide slidea slideb =
+    slidea.targetDuration
+        == slideb.targetDuration
+        && slidea.title
+        == slideb.title
+        && slidea.content (State emptyModel)
+        == slideb.content (State emptyModel)

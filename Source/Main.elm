@@ -182,7 +182,7 @@ update msg model =
                 { previous, current, next } =
                     List.foldl
                         (\slide output ->
-                            if targetSlide == slide then
+                            if sameSlide targetSlide slide then
                                 { output | current = Just slide }
                             else
                                 case output.current of
@@ -322,8 +322,8 @@ slideLinks currentSlide model =
                 (\idx slide ->
                     if idx > toDrop && idx < toTake then
                         span
-                            [ onClick (GoTo slide)
-                            , classList [ ( "nav", True ), ( "current", currentSlide == slide ) ]
+                            [ -- [ onClick (GoTo slide)
+                              classList [ ( "nav", True ), ( "current", sameSlide currentSlide slide ) ]
                             ]
                             [ text <| toString (idx + 1) ]
                     else
@@ -332,4 +332,4 @@ slideLinks currentSlide model =
                 all
             )
                 ++ [ span [ style [ ( "opacity", "0.2" ) ] ] [ text <| "  /  " ++ (toString <| List.length all) ] ]
-                ++ [ span [ style [ ( "opacity", "0.2" ) ] ] [ text <| "  /  " ++ (toString <| (List.foldl (\slide acc -> acc + currentSlide.targetDuration) 0 all) // 60) ] ]
+                ++ [ span [ style [ ( "opacity", "0.2" ) ] ] [ text <| "  (target time:  " ++ (toString <| (List.foldl (\slide acc -> acc + slide.targetDuration) 0 all) // 60) ++ "mins )" ] ]
