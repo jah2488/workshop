@@ -38,8 +38,8 @@ feedbackSlides =
         )
     , newSlide "Be a Good Listener" 30 empty
     , newSlide "Be aware of the context" 30 empty
-    , newSlide "Effective Feedback is a dialog" 30 empty
-    , newSlide "Be"
+    , newSlide "Effective Feedback is a dialogue" 30 empty
+    , newSlide "Effective feedback is"
         45
         (\_ ->
             div []
@@ -66,7 +66,7 @@ feedbackSlides =
     , newSlide "\"If You Find You Are Wrong, Admit It Quickly And Emphatically\"" 30 empty
     , newSlide "\"Mention Your Own Mistakes Before Making A Criticism\"" 30 empty
     , newSlide "Receiving Questions" 20 empty
-    , newSlide "Sasha Laundry's Our Brain's API"
+    , newSlide "Sasha Laundy's Our Brain's API"
         60
         (\_ ->
             div []
@@ -75,7 +75,7 @@ feedbackSlides =
                 , p [] [ text "Dont feign surprise (or outrage)" ]
                 , p [] [ text "Share the how and the why, along with the what" ]
                 , p [] [ text "Don't take control" ]
-                , p [] [ text "What your Language" ]
+                , p [] [ text "Whatch your Language" ]
                 ]
         )
     , newSlide "HANDS ON TIME" 600 (\_ -> h2 [] [ text "Code Review Rapid Fire" ])
@@ -85,7 +85,7 @@ feedbackSlides =
             div []
                 [ p [] [ text "Be a good listener" ]
                 , p [] [ text "Make sure your team knows you're trying and available" ]
-                , p [] [ text "Its better to be explicit in our praise than to assume its received" ]
+                , p [] [ text "It's better to be explicit in our praise than to assume it's received" ]
                 , p [] [ text "Criticisms are more effective in an open/safe enviornment" ]
                 , small [] [ text "Sometimes that means in private" ]
                 , p [] [ text "Mind our language" ]

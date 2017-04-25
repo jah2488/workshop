@@ -27,9 +27,9 @@ introSlides =
             div []
                 [ h2 []
                     [ text "Justin Herrick" ]
-                , p [] [ text "Rails Developer" ]
-                , p [] [ text "Consultant" ]
                 , p [] [ text "Teacher" ]
+                , p [] [ text "Consultant" ]
+                , p [] [ text "Rails Developer" ]
                 , p [] [ text "Person" ]
                 ]
         )
@@ -40,8 +40,8 @@ introSlides =
                 [ h4 [] [ text "A Custom Software and Business Consultancy" ]
                 , p [] [ text "Custom Software" ]
                 , p [] [ text "Project Recovery" ]
-                , p [] [ text "Onsite training" ]
-                , p [] [ text "Remote mentoring" ]
+                , p [] [ text "On-Site Training" ]
+                , p [] [ text "Remote Mentoring" ]
                 , p [] [ text "Custom Apprenticeships" ]
                 ]
         )
@@ -60,7 +60,7 @@ introSlides =
         (\_ ->
             div []
                 [ h4 [] [ text "What are we doing here if we don't value communication" ]
-                , h4 [] [ text "Lets define (and expand) what 'Communication' means" ]
+                , h4 [] [ text "Let's define (and expand) what 'Communication' means" ]
                 ]
         )
     , newSlide "Agile is Communication"
@@ -84,7 +84,7 @@ introSlides =
         30
         (\_ ->
             div []
-                [ p [] [ text "The language we write it effects our ability to express ourselves through code" ]
+                [ p [] [ text "The language we write affects our ability to express ourselves through code" ]
                 ]
         )
     , newSlide "Society is built on Communication"

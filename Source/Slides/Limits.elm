@@ -77,7 +77,7 @@ limitsSlides =
     , newSlide "So, how do we do better?" 30 empty
     , newSlide "Convey expectations cleary" 30 empty
     , newSlide "Explain the context and reasoning behind decisions or statements" 45 empty
-    , newSlide "Be prepared to take converastaions offline" 30 empty
+    , newSlide "Be prepared to take conversations offline" 30 empty
     , newSlide "When Being Critical"
         60
         (\_ ->

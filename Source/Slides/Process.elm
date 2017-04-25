@@ -15,8 +15,8 @@ processSlides =
     [ newSlide "Process As Communication" 60 empty
     , newSlide "What we don't write down says a lot about our team and how its run." 60 empty
       -- Most teams I talk to have __too little__ process, but I know thats not true of everyone so hopefully this is still relevant. Let me know
-    , newSlide "Grayhounds and Cornfields" 30 empty
-    , newSlide "Grayhounds"
+    , newSlide "Greyhounds and Cornfields" 30 empty
+    , newSlide "Greyhounds"
         30
         (\_ ->
             div []
@@ -90,7 +90,7 @@ processSlides =
                 , h4 [] [ text "Always record reasonings behind decisions" ]
                 ]
         )
-    , newSlide "Shape your process before its painful"
+    , newSlide "Shape your process before it's painful"
         60
         (\_ ->
             div []
@@ -107,7 +107,7 @@ processSlides =
             div []
                 [ h4 [] [ text "What you write communicates into the future" ]
                 , h4 [] [ text "Shift blame from the person to the process" ]
-                , h4 [] [ text "Keep your process fluid and uptodate" ]
+                , h4 [] [ text "Keep your process fluid and up to date" ]
                 , h4 [] [ text "Practice collective ownership" ]
                 , h4 [] [ text "Empower your team to do their job" ]
                 ]
