@@ -78,7 +78,14 @@ feedbackSlides =
                 , p [] [ text "Whatch your Language" ]
                 ]
         )
-    , newSlide "HANDS ON TIME" 600 (\_ -> h2 [] [ text "Code Review Rapid Fire" ])
+    , newSlide "HANDS ON TIME"
+        600
+        (\_ ->
+            div []
+                [ h2 [] [ text "Code Review Rapid Fire" ]
+                , h5 [] [ a [ href "http://bit.ly/2p0Zndi" ] [ text "http://bit.ly/2p0Zndi" ] ]
+                ]
+        )
     , newSlide "Feedback Takeaways"
         60
         (\_ ->
