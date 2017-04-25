@@ -103,6 +103,30 @@ limitsSlides =
                 , h5 [] [ text "Using", em [] [ text " only " ], text "our words" ]
                 ]
         )
+    , newSlide "The Groups"
+        400
+        (\_ ->
+            div []
+                [ h3 [] [ text "Break into groups of 3 (introduce yourselves)" ]
+                , h3 [] [ text "Each group should have" ]
+                , p [] [ text "1 laptop everyone can work from" ]
+                , p [] [ text "1 person who is comfortable with writing tests" ]
+                , p [] [ text "1 person eager to write an implementation" ]
+                , p [] [ text "1 person who likes following the rules" ]
+                ]
+        )
+    , newSlide "The Rules"
+        400
+        (\_ ->
+            div []
+                [ p [] [ text "The rule person explains the requirements of the kata" ]
+                , p [] [ text "The tester writes the test" ]
+                , p [] [ text "The implementer writes the code" ]
+                , p [] [ text "The rule person will make sure the tester doesn't see the production code" ]
+                , p [] [ text "The rule person will make sure the implementer doesn't see the test code" ]
+                , code [] [ text "git clone https://github.com/jah2488/workshop-unseen-pair.git" ]
+                ]
+        )
     , newSlide "Communication Limits Takeaways"
         90
         (\_ ->

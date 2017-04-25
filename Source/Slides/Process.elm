@@ -100,7 +100,15 @@ processSlides =
                 ]
         )
     , newSlide "Empower team members by giving them the tools and knowledge" 30 empty
-    , newSlide "HANDS ON TIME" 800 (\_ -> h4 [] [ text "Process Outlining and Checklist" ])
+    , newSlide "HANDS ON TIME"
+        800
+        (\_ ->
+            div []
+                [ h3 [] [ text "Process Outlining and Checklist" ]
+                , p [] [ text "Write down all the steps needed to accomplish task X at your job" ]
+                , p [] [ text "Swap with the person next to you and see if you could follow the checklist" ]
+                ]
+        )
     , newSlide "Communication As Process Takeaways"
         90
         (\_ ->
