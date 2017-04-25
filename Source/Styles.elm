@@ -183,6 +183,7 @@ slideStyles : Styles
 slideStyles =
     [ ( "flex", "1" )
     , ( "text-align", "center" )
+    , ( "max-width", "96%" )
     ]
 
 

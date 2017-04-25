@@ -36,9 +36,9 @@ feedbackSlides =
                 , p [] [ text "We improve our job by being better at giving it" ]
                 ]
         )
-    , newSlide "Be a Good Listener" 30 empty
+    , newSlide "Be a good listener" 30 empty
     , newSlide "Be aware of the context" 30 empty
-    , newSlide "Effective Feedback is a dialogue" 30 empty
+    , newSlide "Effective feedback is a dialogue" 30 empty
     , newSlide "Effective feedback is"
         45
         (\_ ->
@@ -49,14 +49,14 @@ feedbackSlides =
                 ]
         )
     , newSlide "How To Win Friends And Influence People" 45 empty
-    , newSlide "Book Focuses On"
+    , newSlide "Book focuses on"
         60
         (\_ ->
             div []
-                [ h4 [] [ text "Handling People" ]
-                , h4 [] [ text "Making People Like You" ]
-                , h4 [] [ text "Winning People To Your Way of Thinking" ]
-                , h4 [] [ text "Being an Effective Leader" ]
+                [ h3 [] [ text "Handling People" ]
+                , h3 [] [ text "Making People Like You" ]
+                , h3 [] [ text "Winning People To Your Way of Thinking" ]
+                , h3 [] [ text "Being an Effective Leader" ]
                 ]
         )
     , newSlide "\"Don't Criticize, Condemn, or Complain\"" 30 empty

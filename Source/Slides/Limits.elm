@@ -91,14 +91,17 @@ limitsSlides =
         60
         (\_ ->
             div []
-                [ h5 [] [ text "Routines reducing anxiety by reducing uncertainty" ]
-                , h5 [] [ text "Allows you to actively shape your team's culture" ]
+                [ h4 [] [ text "Routines reducing anxiety by reducing uncertainty" ]
+                , h4 [] [ text "Allows you to actively shape your team's culture" ]
                 ]
         )
     , newSlide "HANDS ON TIME"
         800
         (\_ ->
-            h4 [] [ text "Sight Unseen Pair Programming" ]
+            div []
+                [ h4 [] [ text "Sight Unseen Pair Programming" ]
+                , h5 [] [ text "Using", em [] [ text " only " ], text "our words" ]
+                ]
         )
     , newSlide "Communication Limits Takeaways"
         90

@@ -1,6 +1,7 @@
 module Slides.Intro exposing (intro, introSlides)
 
 import Html exposing (..)
+import Html.Attributes exposing (href)
 import Common exposing (..)
 
 
@@ -15,7 +16,7 @@ content model =
         [ h2 [] [ text "The Workshop" ]
         , h3 [] [ text "by me" ]
         , h5 [] [ text "Justin Herrick" ]
-        , h5 [] [ a [ href "http://communication-workshop.surge.sh/" ] [ text "Slides" ] ]
+        , h5 [] [ a [ href "http://communication-workshop.surge.sh/" ] [ text "http://communication-workshop.surge.sh/" ] ]
         ]
 
 
@@ -55,6 +56,7 @@ introSlides =
                 , p [] [ text "Honesty is important" ]
                 ]
         )
+    , newSlide "My Goals" 30 (\_ -> span [] [])
     , newSlide "Show of Hands" 45 (\_ -> span [] [])
     , newSlide "Why Communication Matters"
         30
